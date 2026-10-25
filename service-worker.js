@@ -1,6 +1,6 @@
 // PokéPost · service worker (instalação + abertura offline do app)
 // Rede primeiro: sempre busca a versão nova e só usa o cache se estiver sem conexão.
-// Só arquivos do próprio site são guardados; as chamadas ao Supabase (outro endereço) nunca passam por aqui.
+// Só arquivos do próprio site são guardados. Este site não usa banco de dados nem chamadas externas.
 const CACHE = 'pokepost-v1.4.0';
 const RAIZ = self.registration.scope; // funciona em qualquer subpasta (GitHub Pages)
 const SHELL = [

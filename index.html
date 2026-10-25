@@ -185,22 +185,6 @@
     object-fit:contain;
     flex:0 0 auto;
   }
-  h1 .title-text{
-    display:inline-block;
-    font-family:'Baloo 2',sans-serif;
-    font-size:1.03em;
-    line-height:1;
-    white-space:nowrap;
-  }
-  p.sub{
-    margin:0 0 28px;
-    color:#6b6259;
-    font-size:14px;
-    text-align:center;
-    max-width:340px;
-    line-height:1.5;
-  }
-
   .stage{
     width:min(88vw, 380px);
     position:relative;
@@ -216,48 +200,6 @@
     overflow:hidden;
     container-type:inline-size;
   }
-  .brand{
-    display:none;
-    position:absolute;
-    top:4.5%;
-    left:3%;
-    right:6%;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:3%;
-  }
-  .brand img{
-    width:15%;
-    height:auto;
-    display:block;
-    flex-shrink:0;
-  }
-  .brand .text{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    text-align:left;
-  }
-  .brand .wordmark{
-    font-family:'Baloo 2',sans-serif;
-    font-weight:800;
-    font-size:clamp(12px,4vw,17px);
-    color:var(--ink);
-    letter-spacing:0.2px;
-    white-space:nowrap;
-  }
-  .brand .wordmark span{ color:var(--red); }
-  .brand .phone{
-    font-family:'Baloo 2',sans-serif;
-    font-weight:700;
-    font-size:clamp(9px,2.6vw,11px);
-    color:var(--ink);
-    letter-spacing:0.2px;
-    margin-top:-6px;
-    white-space:nowrap;
-  }
-
   .slot-wrap{
     position:absolute;
     top:40%;
@@ -438,15 +380,6 @@
   }
   .verse-preview div{ margin:0; }
 
-  .note{
-    width:min(88vw, 380px);
-    margin-top:14px;
-    font-size:12.5px;
-    color:#8a8177;
-    text-align:center;
-    line-height:1.5;
-  }
-
   .site-footer{
     width:min(88vw, 380px);
     margin-top:16px;
@@ -498,7 +431,7 @@
 
   
   <div class="stage">
-    <div class="card" id="card">
+    <div class="card">
       <div class="slot-wrap">
         <label class="slot" id="slot" for="fileInput">
           <canvas id="canvas" width="800" height="800"></canvas>
@@ -507,7 +440,7 @@
       </div>
       <label class="logo-slot has-logo" id="logoSlot" aria-label="Logo">
         <img id="logoPreview" src="pokebottons-logo.png" alt="Logo PokéBottons">
-        <span class="logo-hint" id="logoHint">Upload da Logo<small>1520 × 304 px</small></span>
+        <span class="logo-hint">Upload da Logo<small>1520 × 304 px</small></span>
       </label>
       <button type="button" class="logo-swap" id="logoSwapBtn">Trocar</button>
       <div class="verse-preview" aria-label="Versículo João 3:16">
@@ -543,7 +476,6 @@ const slot = document.getElementById('slot');
 const resetBtn = document.getElementById('resetBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 let userImg = null;
-const DEFAULT_VERSE = '“Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.” (Jo 3:16)';
 // --- logo enviada pelo usuário (caixa 380×76 px no post de 1080×1350) ---
 const logoInput = document.getElementById('logoInput');
 const logoSlot = document.getElementById('logoSlot');
@@ -670,29 +602,6 @@ slot.addEventListener('wheel', (e)=>{
   drawSlot();
 }, { passive:false });
 
-
-function matchPhoneWidth(){
-  const wordmark = document.querySelector('.wordmark');
-  const phone = document.querySelector('.phone');
-  if(!wordmark || !phone) return;
-  const targetWidth = wordmark.getBoundingClientRect().width;
-  if(!targetWidth) return;
-  let lo = 6, hi = 40;
-  for(let i=0;i<24;i++){
-    const mid = (lo+hi)/2;
-    phone.style.fontSize = mid + 'px';
-    if(phone.getBoundingClientRect().width < targetWidth) lo = mid; else hi = mid;
-  }
-  phone.style.fontSize = lo + 'px';
-  const verse = document.querySelector('.verse-preview');
-  if(verse) verse.style.fontSize = lo + 'px';
-}
-if(document.fonts && document.fonts.ready){
-  document.fonts.ready.then(matchPhoneWidth);
-} else {
-  window.addEventListener('load', matchPhoneWidth);
-}
-window.addEventListener('resize', matchPhoneWidth);
 
 fileInput.addEventListener('change', (e)=>{
   const file = e.target.files[0];
@@ -841,7 +750,6 @@ downloadBtn.addEventListener('click', ()=>{
   octx.fillStyle = '#FFFFFF';
   octx.fillRect(0,0,OUT_W,OUT_H);
 
-  const pad = OUT_W * 0.045;
   const render = async ()=>{
     try{
     // Permite ao navegador pintar o botão cinza antes de iniciar o processamento.
@@ -859,7 +767,6 @@ downloadBtn.addEventListener('click', ()=>{
     // --- medidas do preview usadas para reproduzir o layout no PNG ---
     const previewCard = document.querySelector('.card');
     const previewRect = previewCard.getBoundingClientRect();
-    const previewStyle = getComputedStyle(previewCard);
     const previewW = previewRect.width;
     const previewH = previewRect.height;
     const scale = OUT_W / previewW;
@@ -872,7 +779,6 @@ downloadBtn.addEventListener('click', ()=>{
     const slotX = (OUT_W - slotSize)/2;
     const slotY = previewH * 0.16 * scale;
     const cx = OUT_W/2, cy = previewH * 0.40 * scale, r = slotSize/2;
-    const circleBottom = cy + r;
 
     // sombra suave sob o botton (mesmos valores do CSS .slot, em unidades da largura do post)
     octx.save();
