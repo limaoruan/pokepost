@@ -26,7 +26,26 @@ Gera a imagem do post (PNG 1080×1350) com a foto escolhida em um círculo no es
 
 **Internet:** o site abre sem conexão, mas a fonte do versículo (Baloo 2) vem do Google Fonts. Sem internet, o texto do PNG pode sair em outra fonte; baixe o post com conexão.
 
-**App:** no celular, abra o endereço do site e use **Adicionar à tela inicial** (Android: menu do navegador; iPhone: Compartilhar).
+## Instalação
+
+Este site não usa banco de dados, login nem `config.js`.
+
+### 1. Configurar o site
+Se for publicar em outra conta do GitHub, troque `limaoruan` pelo seu usuário em `index.html`, `robots.txt`, `sitemap.xml` e `LICENCE.md`.
+
+### 2. Publicar no GitHub Pages
+1. Crie um repositório **público** chamado `pokepost`.
+2. Envie todo o conteúdo desta pasta para a raiz do repositório. O arquivo `.nojekyll` é opcional.
+3. Em **Settings**, **Pages**, escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`.
+4. Aguarde alguns minutos. O endereço será https://limaoruan.github.io/pokepost/
+
+### 3. Testar
+Abra o endereço, escolha uma foto e toque em **Baixar post**. O arquivo `pokebottons-post.png` deve ser salvo.
+
+### 4. Instalar como app (opcional)
+Os sites são PWA. No celular, abra o endereço do site e use **Adicionar à tela inicial**:
+- **Android:** menu do navegador, **Instalar app** ou **Adicionar à tela inicial**.
+- **iPhone:** botão **Compartilhar**, **Adicionar à Tela de Início**.
 
 ## Manutenção
 Para atualizar o site, edite os arquivos no repositório; o GitHub Pages publica sozinho em alguns minutos.
