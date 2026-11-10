@@ -60,5 +60,5 @@ Para atualizar o site, edite os arquivos no repositório; o GitHub Pages publica
 
 ---
 
-© 2026 Ruan Oliveira Lima · Instagram: https://www.instagram.com/ruanoliveiralima_/
+© 2026 Ruan Oliveira Lima · Instagram: https://www.instagram.com/limaoruan/
 Licença: CC BY-SA 4.0 (texto completo no `LICENCE.md`)

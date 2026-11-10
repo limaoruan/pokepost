@@ -23,7 +23,7 @@ Desde que respeite os termos desta licença.
 
 Atribuição sugerida:
 
-> Derivado do projeto PokéPost por [Ruan Oliveira Lima](https://www.instagram.com/ruanoliveiralima_/) © 2026 — <a href="https://github.com/limaoruan/pokepost" target="_blank" rel="noopener noreferrer">https://github.com/limaoruan/pokepost</a> — <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br" target="_blank" rel="license noopener noreferrer">CC-BY-SA 4.0</a>
+> Derivado do projeto PokéPost por [Ruan Oliveira Lima](https://www.instagram.com/limaoruan/) © 2026 — <a href="https://github.com/limaoruan/pokepost" target="_blank" rel="noopener noreferrer">https://github.com/limaoruan/pokepost</a> — <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br" target="_blank" rel="license noopener noreferrer">CC-BY-SA 4.0</a>
 
 ---
 
@@ -42,7 +42,7 @@ Este projeto utiliza serviços e bibliotecas de terceiros com suas próprias lic
 
 | Serviço / Biblioteca | Uso | Licença / Termos |
 |---|---|---|
-| [GitHub Pages e GitHub Actions](https://github.com) | Hospedagem do site (Pages) | [Termos de serviço do GitHub](https://docs.github.com/pt/site-policy/github-terms/github-terms-of-service) |
+| [GitHub Pages](https://github.com) | Hospedagem do site (Pages) | [Termos de serviço do GitHub](https://docs.github.com/pt/site-policy/github-terms/github-terms-of-service) |
 | [Google Fonts](https://fonts.google.com) · Baloo 2 | Fonte do versículo e dos textos do post | [SIL Open Font License 1.1](https://openfontlicense.org/) |
 | [Google Fonts](https://fonts.google.com) · Inter | Fonte dos textos da interface | [SIL Open Font License 1.1](https://openfontlicense.org/) |
 | [Claude (Anthropic)](https://www.anthropic.com) | Assistência com IA no desenvolvimento | [Política de Uso Anthropic](https://www.anthropic.com/legal/aup) |
